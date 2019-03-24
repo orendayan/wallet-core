@@ -43,7 +43,7 @@ TEST(EthereumAddress, EIP55) {
 
 TEST(EthereumAddress, Wanchain) {
     ASSERT_EQ(
-            Address(parse_hex("0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed")).string(TWWanchain),
+            Address(parse_hex("0x5aAeb6053F3E94C9b9A09f33669435E7Ef1BeAed"), TWWanchain).string(),
             "0x5AaEB6053f3e94c9B9a09F33669435e7eF1bEaED"
     );
 }

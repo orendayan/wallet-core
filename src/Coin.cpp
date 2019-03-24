@@ -59,7 +59,7 @@ std::string TW::loadAddress(TWCoinType coin, const Data& data) {
         return Ethereum::Address(data).string();
 
     case TWCoinTypeWanChain:
-        return Ethereum::Address(data).string(TWWanchain);
+        return Ethereum::Address(data, TWWanchain).string();
 
     case TWCoinTypeICON:
         return Icon::Address(data, TWIconAddressTypeAddress).string();

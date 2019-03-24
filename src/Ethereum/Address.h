@@ -17,6 +17,9 @@ namespace TW {
 namespace Ethereum {
 
 class Address {
+private:
+    TWEthereumChecksumType checksumType;
+
 public:
     /// Number of bytes in an address.
     static const size_t size = 20;
@@ -33,16 +36,16 @@ public:
     static bool isValid(const std::string& string);
 
     /// Initializes an address with a string representation.
-    Address(const std::string& string);
+    Address(const std::string& string, TWEthereumChecksumType type = TWEIP55);
 
     /// Initializes an address with a collection of bytes.
-    Address(const std::vector<uint8_t>& data);
+    Address(const std::vector<uint8_t>& data, TWEthereumChecksumType type = TWEIP55);
 
     /// Initializes an address with a public key.
-    Address(const PublicKey& publicKey);
+    Address(const PublicKey& publicKey, TWEthereumChecksumType type = TWEIP55);
 
     /// Returns a string representation of the address.
-    std::string string(TWEthereumChecksumType type = TWEIP55) const;
+    std::string string() const;
 };
 
 static inline bool operator==(const Address& lhs, const Address& rhs) {
