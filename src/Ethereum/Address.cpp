@@ -42,6 +42,6 @@ Address::Address(const PublicKey& publicKey) {
     std::copy(hash.end() - Address::size, hash.end(), bytes.begin());
 }
 
-std::string Address::string() const {
-    return checksumed(*this);
+std::string Address::string(TWEthereumChecksumType type) const {
+    return checksumed(*this, type);
 }

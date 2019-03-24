@@ -7,6 +7,7 @@
 #pragma once
 
 #include "../PublicKey.h"
+#include "TrustWalletCore/TWEthereumChecksumType.h"
 
 #include <array>
 #include <stdint.h>
@@ -41,7 +42,7 @@ public:
     Address(const PublicKey& publicKey);
 
     /// Returns a string representation of the address.
-    std::string string() const;
+    std::string string(TWEthereumChecksumType type = TWEIP55) const;
 };
 
 static inline bool operator==(const Address& lhs, const Address& rhs) {
